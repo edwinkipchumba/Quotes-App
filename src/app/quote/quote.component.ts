@@ -24,7 +24,18 @@ export class QuoteComponent implements OnInit {
     quote.completeDate = new Date(quote.postDate);
     this.quote.push(quote);
   }
+ //hide and show logic
+    hideQuote(seen, index){
+      if(seen){
+        let toHide=confirm('Are you sure want to delete this quote?');
 
+        if(toHide){
+          this.quote.splice(index, 1);
+        }
+      }
+    }
+    
+    
   constructor() { }
 
   ngOnInit(): void {
