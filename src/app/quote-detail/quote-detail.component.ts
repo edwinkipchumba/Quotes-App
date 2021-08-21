@@ -28,10 +28,10 @@ export class QuoteDetailComponent implements OnInit {
   downVote(){
     this.numberOfHates ++;
   }
-  
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
