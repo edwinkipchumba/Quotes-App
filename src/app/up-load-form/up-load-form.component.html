@@ -6,8 +6,16 @@
     <form #addForm="ngForm" (ngsubmit)='submitQuote();'>
         <div class="form-group">
             <label for="quote">Quote</label>
-            <input type="text" class="form-control" placeholder="Your quote here..." required [(ngModel)]="newQuote.text" id="text" name="text" #text="ngModel" required>
+            <input type="text" class="form-control" placeholder="Your quote here..." [(ngModel)]="newQuote.text" id="text" name="text" #text="ngModel" required>
             <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+                <p>quote is required</p>
+            </div>
+        </div>
+        <!-- label for author -->
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" placeholder="Quote by..."[(ngModel)]="newQuote.author" name="author" #author="ngModel" required>
+            <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
                 <p>quote is required</p>
             </div>
         </div>
