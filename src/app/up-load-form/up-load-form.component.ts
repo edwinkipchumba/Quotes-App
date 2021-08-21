@@ -11,10 +11,16 @@ export class UpLoadFormComponent implements OnInit {
 
 // create newQuote and assign quote class
   newQuote = new quote (0, "", "", "", new Date());
+  @Output () addQuote = new EventEmitter<quote>();
+
+  // quote submit button
+  submitQuote(){
+    this.addQuote.emit(this.newQuote);
+  }
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
 }
