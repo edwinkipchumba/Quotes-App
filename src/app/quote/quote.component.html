@@ -22,3 +22,6 @@
         <app-quote-detail *ngIf='quote.showDetail' [quote]='quote' (seen)='hideQuote($event,i)'></app-quote-detail>
     </div>
 </div>
+<div class="offse-1 col-md-5">
+    <app-uploadform (addQuote)='addAQuote($event)'></app-uploadform>
+</div>

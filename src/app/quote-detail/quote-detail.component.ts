@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import quote blueprint class
+import {quote} from '..quote'
 
 @Component({
   selector: 'app-quote-detail',
