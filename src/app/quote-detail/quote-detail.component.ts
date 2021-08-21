@@ -15,6 +15,19 @@ export class QuoteDetailComponent implements OnInit {
   // vote likes
   numberOfLikes: number=0;
   numerOfHates: number=0;
+   
+  // boolean
+  deleteQuote(isSeen:boolean){
+    this.seen.emit(isSeen);
+  }
+
+  // upvote and downvote
+  upVote(){
+    this.numberOfLikes ++;
+  }
+  downVote(){
+    this.numberOfHates ++;
+  }
   
   constructor() { }
 
