@@ -27,7 +27,13 @@
                 <p>Name is required *</p>
             </div>
         </div>
-        <!-- labe -->
+        <!-- label for date -->
+        <div class="form-group">
+            <label for="Date">Date</label>
+            <input type="date" class="form-control" [(ngModel)]="newQuote.postDate" name="postDate" #postDate="ngModel" required>
+        </div><br>
+        <!-- button -->
+        <button type="submit" class="btn btn-dark">Add Quote</button>
     </form>
 </div>
 
