@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Quote } from '../quote';
 
 @Component({
   selector: 'app-quote',
@@ -6,39 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
-    //  display array quote
-  quote:quote[]=[
-    new quote(1, 'one, As far as is humanly possible, when you look at a design, it should be self-evident and Obvious.Krug’s First Law of Usability', new Date(2021,08,20)),
-    new quote(2, 'Making every page or screen self-evident is like having good lighting in a store', new Date(2021,07,03))
+  
+  quotes: Quote[] = [
+    new Quote(1, 'Angular code needs clarity', 'Michael Jackson',new Date(2019,6,9)),
+    new Quote(2,'Testing and verifying','Hellen Kyle',new Date(2020,3,14)),
+    new Quote(3,'Get new codes and test','Diana Ann',new Date(2022,1,12)),
+    new Quote(4,'Welcome to the world of trial and errors','Zacks Zulu',new Date(2019,0,18)),
+    new Quote(5,'Solve merge conflict','Damn Math',new Date(2019,2,14)),
+   
   ];
-    
-  // show logic
-  details(index){
-    this.quote[index].showDetail = !this.quote[index].showDetail;
+  // toggle
+  toggleDetails(index){
+    this.quotes[index].showName=!this.quotes[index].showName;
   }
 
-  // emmitting events
-  addAquote(quote){
-    let allQouteLength = this.quote.length;
-    quote.id = allQuoteLength + 1;
-    quote.completeDate = new Date(quote.postDate);
-    this.quote.push(quote);
-  }
- //hide and show logic
-    hideQuote(seen, index){
-      if(seen){
-        let toHide=confirm('Are you sure want to delete this quote?');
-
-        if(toHide){
-          this.quote.splice(index, 1);
-        }
-      }
+  // confirm option
+  deleteQuote(deletequoteevent, index){
+    if (deletequoteevent) {
+      this.quotes.splice(index,1);
     }
+  };
+  likeQuote(likequoteevent, index){
+    if (likequoteevent) {
+      this.quotes[index].upvote++;
+    }
+  };
+  dislikeQuote(dislikequoteevent, index){
+    if (dislikequoteevent) {
+      this.quotes[index].downvote++;
+    }
+  };
+
+  addNewQuote(Quote){
+    let quoteLength = this.quotes.length;
+  Quote.id = quoteLength+1;
+    Quote.completeDate = new Date(Quote.completeDate)
+    this.quotes.push(Quote)
+  }
+
+  
+
     
     
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
